@@ -62,7 +62,11 @@ $white:             #fff;
 $bones-pink:        #f01d4f;
 $bones-blue:        #1990db;
 
-$link-color:        $bones-pink;
+$tis-green:	#277c7c;
+$tis-green-light: #e0f2f1;
+$tis-green-dark: #2d5956;
+
+$link-color:        $tis-green;
 $link-hover:        darken($link-color, 9%);
 
 /*

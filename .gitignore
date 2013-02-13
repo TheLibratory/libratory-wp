@@ -6,3 +6,9 @@ Bones.esproj/Project.espressostorage
 .project
 
 .DS_Store
+
+library/css/*.css
+
+library/scss/fire_app_log.txt
+
+.sass-cache

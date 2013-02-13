@@ -37,14 +37,24 @@ style a page via class
 	.search-results {}              /* search result page */
 	.search-no-results {}           /* no results search page */
 	.search-paged-1 {}              /* individual paged search (i.e. body.search-paged-3) */
-.error404 {}                      /* 404 page */
+.error404 {
+		margin-left: auto;
+		margin-right: auto;
+	}                      /* 404 page */
 .single {}                        /* single post page */
 	.postid-1 {}                    /* individual post page by id (i.e. body.postid-73) */
 	.single-paged-1 {}              /* individual paged single (i.e. body.single-paged-3) */
 .attachment {}                    /* attatchment page */
 	.attachmentid-1 {}              /* individual attatchment page (i.e. body.attachmentid-763) */
 	.attachment-mime-type {}        /* style mime type pages */
-.author {}                        /* author page */
+.author {}					/* author page */
+.author_info {
+	border-bottom: 1px solid #cccccc;
+
+	.user_info_label {
+		text-align: right;
+	}
+	}
 	.author-nicename {}             /* user nicename (i.e. body.author-samueladams) */
 	.author-paged-1 {}              /* paged author archives (i.e. body.author-paged-4) for page 4 */
 .category {}                      /* category page */
@@ -150,10 +160,29 @@ h5, .h5 {
 HEADER SYTLES
 *********************/
 
-.header {}
+.header {
+	background-color: #e0f2f1;
+	img {
+		height: 100%;
+		width: 100%;
+	}
+}
 
 	#logo {}
 
+p#logo.h1 {
+	// margin: 0;
+	// font-size: 3em;
+	// font-family: Impact, sans-serif;
+	// text-transform: uppercase;
+	}
+p#description.h3 {
+	// margin: 0;
+	// font-size: 1.5em;
+	// font-family: Impact, sans-serif;
+	// font-style: italic;
+	// text-transform: uppercase;
+	}
 /*********************
 NAVIGATION STYLES
 *********************/
@@ -167,16 +196,17 @@ and more scalable.
 */
 
 .nav {
-	border: 1px solid #ccc;
-	border-bottom: 0;
-
+	border: none;
+	ul {
+		margin-top: 0;
+	}
 	li {
 
 		a {
 			display: block;
 			text-decoration: none;
 			padding: 10px 10px;
-			background-color: #eee;
+			background-color: #ffffff;
 			border-bottom: 1px solid #ccc;
 
 			/*
@@ -243,7 +273,7 @@ POSTS & CONTENT STYLES
 *********************/
 
 #content {
-	margin-top: 2.2em;
+	margin-top: 0;
 }
 
 		.hentry {
@@ -265,7 +295,9 @@ POSTS & CONTENT STYLES
 
 		/* want to style individual post classes? Booya! */
 		.post-id {}         /* post by id (i.e. post-3) */
-		.post {}            /* general post style */
+		.post {/* general post style */
+			border-bottom: 1px solid #cccccc;
+			}
 		.page {}            /* general article on a page style */
 		.attachment {}      /* general style on an attatchment */
 		.sticky {}          /* sticky post style */
@@ -417,7 +449,7 @@ PAGE NAVI STYLES
 
 				&:hover,
 				&:focus {
-					color: #f01d4f;
+					color: $link-hover;
 					text-decoration: underline;
 				}
 			}
@@ -427,7 +459,7 @@ PAGE NAVI STYLES
 		/* current page link */
 		li.bpn-current {
 			padding: 3px 6px;
-			border-bottom: 2px solid #f01d4f;
+			border-bottom: 2px solid $link-color;
 			position: relative;
 
 			a {
@@ -779,12 +811,15 @@ COMMENT FORM STYLES
 SIDEBARS & ASIDES
 *********************/
 
-.sidebar {}
+.sidebar {
+}
 
 	.widgettitle {}
 
 	.widget {
-
+		.widget_search {
+			margin: 0 0 2.2em;
+		}
 		ul {
 
 			li {
@@ -804,12 +839,17 @@ SIDEBARS & ASIDES
 
 	}
 
+label.bones-search-form {
+	display: none;
+}
+
 /*********************
 FOOTER STYLES
 *********************/
 
 .footer {
 	clear: both;
+	background-color: $tis-green-light;
 }
 
 	/*
@@ -825,12 +865,39 @@ FOOTER STYLES
 
 		ul {
 
-			li {}
+			li {
+				border: none;
+			}
 
 		}
 
 	} /* end .footer-links */
 
-
 	.copyright {}
 
+.utlib-footer {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+
+	span {
+		display: block;
+	}
+
+	display: block;
+	background-color: #ffffff;
+
+	.utlib-footer-tower {
+		line-height: 0;
+	}
+	.utlib-footer-bottom {
+		background-color: #cc5500;
+	}
+	.utlib-footer-copyright {
+		a {
+			color: #ffffff;
+			text-decoration: none;
+			line-height: 1.5em;
+		}
+	}
+}

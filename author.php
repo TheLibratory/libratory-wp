@@ -6,42 +6,37 @@
 
 				    <div id="main" class="eightcol first clearfix" role="main">
 
-					    <?php if (is_category()) { ?>
-						    <h1 class="archive-title h2">
-							    <?php single_cat_title(); ?><span><?php _e("&nbsp;Posts"); ?></span>
-					    	</h1>
-
-					    <?php } elseif (is_tag()) { ?>
-						    <h1 class="archive-title h2">
-							    <?php single_tag_title(); ?><span><?php _e("&nbsp;Posts"); ?></span>
-						    </h1>
-
-					    <?php } elseif (is_author()) {
+					    <?php
 					    	global $post;
 					    	$author_id = $post->post_author;
 					    ?>
 						    <h1 class="archive-title h2">
 
-						    	<span><?php _e("Posts By ", "bonestheme"); ?></span> <?php echo get_the_author_meta('display_name', $author_id); ?>
+						    	<?php echo get_the_author_meta('display_name', $author_id); ?>
 
 						    </h1>
-					    <?php } elseif (is_day()) { ?>
-						    <h1 class="archive-title h2">
-	    						<span><?php _e("Daily Archives:", "bonestheme"); ?></span> <?php the_time('l, F j, Y'); ?>
-						    </h1>
+						    <section class="author_info clearfix">
+						    <?php
+								$curauth = (get_query_var('author_name')) ? get_user_by('slug', get_query_var( 'author_name')) : get_userdata(get_query_var( 'author'));
+						    ?>
+						    	<span class="user_photo fourcol first">
+						    		<?php
+						    			userphoto($wp_query->get_queried_object())
+						    		?>
+						    	</span>
+						    		<ul class="user_info eightcol">
+						    			<li><span class="threecol user_info_label">Website:&nbsp;</span><span class="sevencol"><?php $curauth->user_url ? print $curauth->user_url . '</span></li>' : ''?>
+						    			<li><span class="threecol user_info_label">Email:&nbsp;</span><span class="sevencol"><?php $curauth->user_email ? print $curauth->user_email . '</span></li>' : ''?>
+						    		</ul>
+						    	<p class="author_bio twelvecol clearfix">
+						    		<?php $curauth->description ? print $curauth->description : ''?>
+						    	</p>
+						    </section>
 
-		    			<?php } elseif (is_month()) { ?>
-			    		    <h1 class="archive-title h2">
-				    	    	<span><?php _e("Monthly Archives:", "bonestheme"); ?></span> <?php the_time('F Y'); ?>
-					        </h1>
+						<h2 class="h2">Posts by <?php echo get_the_author_meta('display_name', $author_id); ?></h2>
 
-					    <?php } elseif (is_year()) { ?>
-					        <h1 class="archive-title h2">
-					    	    <span><?php _e("Yearly Archives:", "bonestheme"); ?></span> <?php the_time('Y'); ?>
-					        </h1>
-					    <?php } ?>
 
-					    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 					    <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?> role="article">
 

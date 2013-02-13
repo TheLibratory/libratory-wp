@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Custom Page Example
+Template Name: Front Page
 */
 ?>
 
@@ -10,7 +10,7 @@ Template Name: Custom Page Example
 
 				<div id="inner-content" class="wrap clearfix">
 
-				    <div id="main" class="eightcol first clearfix" role="main">
+				    <div id="main" class="twelvecol first last clearfix" role="main">
 
 					    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -35,8 +35,6 @@ Template Name: Custom Page Example
 
 						    </footer> <!-- end article footer -->
 
-						    <?php comments_template(); ?>
-
 					    </article> <!-- end article -->
 
 					    <?php endwhile; ?>
@@ -58,8 +56,6 @@ Template Name: Custom Page Example
 					    <?php endif; ?>
 
 				    </div> <!-- end #main -->
-
-				    <?php get_sidebar(); ?>
 
 				</div> <!-- end #inner-content -->
 
